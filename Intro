@@ -1,0 +1,5 @@
+@@ -0,0 +1,4@@
++ -Insertar 10 usuarios
++ insert into Usuarios (usuario_id, nombre, apellido, departamento)
++ values (2, 'Axel', 'Cruz', 'XL');
++ values (1, 'Axel', 'Cruz', 'XL');
