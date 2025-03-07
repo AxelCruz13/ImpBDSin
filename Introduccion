@@ -29,4 +29,4 @@ departamento varchar(25) DEFAULT NULL)
 
 -Insertar 10 usuarios
 insert into Usuarios (usuario_id, nombre, apellido, departamento)
-values (1, 'Juan', 'Moy', 'XL');
+values (1, 'Juan', 'Moy', 'Axel', 'Yael', 'Cruz', 'Hernandez', 'Derick', 'Emiliano','Karla', 'Luis');
