@@ -1,0 +1,21 @@
+CREATE TABLE customers (
+    customer_id INT,
+    type_phone TEXT,
+    number TEXT
+);
+
+INSERT INTO customers ( customer_id, type_phone, number) VALUES
+	(1001, 'Celular', 3338975421),
+	(1001, 'Trabajo', 3338976542),
+	(1001, 'Casa', 3336989874),
+	(2002, 'Celular', 3339636544),
+	(2002, 'Trabajo', 3338129856),
+	(3003, 'Celular', 3339876541);
+
+SELECT 
+    customer_id,
+    SUM(CASE WHEN type_phone = 'Celular' THEN number ELSE NULL END) AS Celular,
+    SUM(CASE WHEN type_phone = 'Trabajo' THEN number ELSE NULL END) AS Trabajo,
+    SUM(CASE WHEN type_phone = 'Casa' THEN number ELSE NULL END) AS Casa
+FROM customers
+GROUP BY customer_id;
