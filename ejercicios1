@@ -1,0 +1,15 @@
+CREATE TABLE ejercicio2 (
+DESARROLLO VARCHAR(50) NOT NULL,
+ETAPA INT,
+FINALIZADO INT
+);
+
+INSERT INTO EJERCICIO2 (DESARROLLO,ETAPA,FINALIZADO) VALUES
+('RestAPI', 1, '01/02/2024'),
+('RestAPI', 2, '30/05/2024'),
+('RestAPI', 3, '29/06/2024'),
+('Web', 1, '28/10/2024'),
+('Web', 2, '20/11/2024'),
+('Web', 3, ''),
+('App', 1, '30/01/2025'),
+('App', 2, '');
