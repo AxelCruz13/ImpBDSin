@@ -1,0 +1,38 @@
+CREATE TABLE candidato (
+    id_candidatos INT,
+    descripcion VARCHAR (30)
+);
+
+CREATE TABLE Descripciones (
+    descripcion VARCHAR (30)
+);
+
+
+INSERT INTO  candidato ( id_candidatos, descripcion) VALUES
+	(1001, 'Geólogo'),
+	(1001, 'Astrónomo'),
+	(1001, 'Bioquímico'),
+	(1001, 'Técnico'),
+	(2002, 'Cirujano'),
+	(2002, 'Mecánico'),
+	(2002, 'Geólogo'),
+	(3003, 'Geólogo'),
+	(3003, 'Astrónomo'),
+            (4004, 'Ingeniero');
+
+
+INSERT INTO Descripciones (descripcion) VALUES
+             ('Geólogo'),
+	('Astrónomo'),
+	('Bioquímico'),
+	('Técnico');
+
+
+
+
+
+SELECT id_candidatos
+FROM candidato
+WHERE descripcion IN ( SELECT * FROM Descripciones)
+GROUP BY id_candidatos
+HAVING COUNT(DISTINCT descripcion) = (SELECT COUNT(*) FROM Descripciones);
