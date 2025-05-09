@@ -1,0 +1,117 @@
+CREAR TABLA articulosone (
+- Artículo varchar(30)
+- );
+Consulta correcta, 0 filas afectadas (0,06 segundos)
+
+MySQL
+mysql CREATE TABLE articulostwo (
+- Artículo varchar(30)
+- );
+Consulta correcta, 0 filas afectadas (0,02 segundos)
+
+mysql INSERTAR EN articulosone ( Artículo ) VALORES
+- ('Azúcar'),
+- ('Cacerola'),
+- ('jugo'),
+- ('Refresco'),
+- ('Harina');
+Consulta correcta, 5 filas afectadas (0,01 segundos)
+Registros 5 Duplicados 0 Advertencias 0
+
+MySQL
+mysql INSERT INTO articulostwo (Artículo) VALUES
+- ('Azúcar'),
+- ('Cacerola'),
+- ('Mantequilla'),
+- ('Queso'),
+- ('Manzana');
+Consulta correcta, 5 filas afectadas (0,01 segundos)
+Registros 5 Duplicados 0 Advertencias 0
+
+mysql SELECT de articulosone left external join articulostwo en articulosone.Artículo = articulostwo.Articulo
+- unión
+- SELECCIONAR de articulosone derecho exterior unir articulostwo en articulostwo.Articulo = articulosone.Artículo;
++-----------+--------------+
+Artículo Artículo
++-----------+--------------+
+Azúcar Azúcar
+Sartén sartén
+jugo NULL
+Actualizar NULL
+Harina NULL
+NULL Mantequilla
+NULL Queso
+Manzana nula
++-----------+--------------+
+8 filas en conjunto (0,00 segundos)
+
+mysql CREAR TABLA empresae2 (
+- id_empleado INT,
+- id_gerente INT,
+- puesto VARCHAR (30)
+- );
+Consulta correcta, 0 filas afectadas (0,02 segundos)
+
+mysql INSERTAR EN empresae2 (id_empleado,id_gerente,puesto) VALORES
+- (1001, ' ' ,'Presidente'),
+- (2002, 1001, 'Director'),
+- (3003, 1001, 'Gerente'),
+- (4004, 2002, 'Ingeniero'),
+- (5005, 2002, 'Contador'),
+- (6006, 2002, 'Administrador');
+Consulta correcta, 6 filas afectadas, 1 advertencia (0,00 segundos)
+Registros 6 Duplicados 0 Advertencias 1
+
+MySQL
+MySQL
+mysql CON Jerarquía RECURSIVA COMO (
+- SELECT id_empleado, id_gerente ,puesto, 0 AS Nivel
+- DE empresae2
+- DONDE id_gerente ES NULO
+-
+- UNIÓN TODOS
+-
+- SELECCIONAR e.id_empleado, e.id_gerente, e.puesto, j.id_empleado +1
+- DE empresae2 e
+- ÚNETE a empresae2 j ON e.id_gerente = j.id_empleado
+- )
+-
+- SELECCIONAR DE Jerarquia ORDENAR POR Nivel, id_empleado;
++--------------+------------+---------------+-------+
+id_empleado id_gerente puesto Nivel
++--------------+------------+---------------+-------+
+1001 Presidente 0
+2002 1001 Director 1
+3003 1001 Gerente 1
+4004 2002 Ingeniero 2
+5005 2002 Contador 2
+6006 2002 Administrador 2
++--------------+------------+---------------+-------+
+5 filas en conjunto (0,00 segundos)
+
+mysql CREAR TABLA predicadose3 (
+- id_cliente INT,
+- id_orden INT,
+- estado_destino VARCHAR (30),
+- costo VARCHAR(10)
+- );
+Consulta correcta, 0 filas afectadas (0,08 segundos)
+
+mysql INSERTAR EN predicadose3(id_cliente,id_orden,estado_destino,costo) VALORES
+- (1001, 1, 'JAL', '$987'),
+- (1001, 2, 'CDMX', '$400'),
+- (1001, 3, 'CDMX', '$545'),
+- (1001, 4, 'CDMX', '$321'),
+- (2002, 5, 'MTY', '$324'),
+- (3003, 6, 'JAL', '$931'),
+- (4004, 7, 'JAL', '$876'),
+- (5005, 8, 'CDMX', '$567');
+Consulta correcta, 8 filas afectadas (0,00 segundos)
+Registros 8 Duplicados 0 Advertencias 0
+
+mysql SELECT id_cliente,id_orden,estado_destino,costo
+- DE predicadose3
+- DONDE estado_destino = 'CDMX'
+- Y id_cliente EN (
+- SELECCIONE id_cliente FROM predicadose3 DONDE estado_destino = 'JAL'
+- );
