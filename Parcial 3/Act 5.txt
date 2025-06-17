@@ -1,0 +1,9 @@
+seleccionar
+ Solicitud_en como Día ,
+ round ( suma (Estado en ( 'cancelled_by_driver' , 'cancelled_by_client' )) / count ( * ), 2 ) como 'Tasa de cancelación'
+ de Viajes
+ dónde
+ Client_Id no está en ( seleccione Users_Id de Usuarios donde Banned = 'Sí' y Role = 'cliente' ) y
+ Driver_Id no está en ( seleccione Users_Id de Usuarios donde Banned = 'Sí' y Role = 'driver' ) y
+ Request_at entre '2013-10-01' y '2013-10-03'
+ agrupar por Request_at
